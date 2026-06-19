@@ -6,7 +6,8 @@ COPY backend/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY backend/ ./backend/
-COPY ml-pipeline/saved_model/ ./ml-pipeline/saved_model/
+# Note: ml-pipeline/saved_model/ is not in the repo — backend uses mock inference fallback
+
 
 ENV PYTHONPATH=/app
 EXPOSE 8000
