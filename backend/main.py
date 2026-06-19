@@ -12,6 +12,7 @@ origins = [
     "http://localhost:3000",
     "http://localhost:5173",
     "http://localhost",
+    "https://mindcare1-self.vercel.app",  # Production Vercel URL
 ]
 
 app.add_middleware(
