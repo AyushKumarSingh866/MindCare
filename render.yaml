@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: mindcare-api
+    runtime: docker
+    dockerfilePath: backend.Dockerfile
+    plan: free
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: MONGODB_URL
+        value: ""
+      - key: DATABASE_NAME
+        value: mental_health_db
+    healthCheckPath: /

@@ -7,16 +7,17 @@ from .api.routes import auth, predict, dashboard
 
 app = FastAPI(title=settings.PROJECT_NAME)
 
-# Setup CORS
+# Setup CORS — allow localhost for dev and all Vercel domains for production
 origins = [
     "http://localhost:3000",
-    "http://localhost:5173", # Vite default
-    "http://localhost"
+    "http://localhost:5173",
+    "http://localhost",
 ]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
+    allow_origin_regex=r"https://.*\.vercel\.app",  # Allows all Vercel preview & production URLs
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
